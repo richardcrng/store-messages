@@ -4,8 +4,8 @@ import './index.css';
 import Root from './Root';
 import * as serviceWorker from './serviceWorker';
 
-// Import Framework7 Core
-import Framework7 from 'framework7';
+// Import F7 Bundle
+import Framework7 from 'framework7/framework7.esm.bundle.js'
 
 // Import Framework7 React
 import Framework7React from 'framework7-react';
