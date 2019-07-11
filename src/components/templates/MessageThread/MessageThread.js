@@ -11,8 +11,8 @@ function MessageThread({ messages = {}, onSelect }) {
     <MessageThreadContext.Provider value={{ onSelect }}>
       <F7Page>
         <F7Messages>
-          {Object.entries(messages).map(([key, { text, sender, createdAt }]) => (
-            <Message key={key} {...{ sender, text }} />
+          {Object.entries(messages).map(([key, { id, text, sender, createdAt }]) => (
+            <Message key={key} {...{ id, sender, text }} />
           ))}
         </F7Messages>
       </F7Page>
