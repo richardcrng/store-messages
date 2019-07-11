@@ -5,13 +5,13 @@ function MessageThread({ messages = {} }) {
   return (
     <F7Page>
       <F7Messages>
-        {Object.entries(messages).map(([key, message]) => (
+        {Object.entries(messages).map(([key, { text, sender, createdAt }]) => (
           <React.Fragment key={key}>
-            <F7MessagesTitle><b>{key}</b></F7MessagesTitle>
+            <F7MessagesTitle><b>{createdAt}</b></F7MessagesTitle>
             <F7Message
-              type={message.sender === 'user' ? 'sent' : 'received'}
+              type={sender === 'user' ? 'sent' : 'received'}
             >
-              <span>{message.text}</span>
+              <span>{text}</span>
             </F7Message>
           </React.Fragment>
         ))}

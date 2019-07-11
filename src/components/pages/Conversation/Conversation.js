@@ -1,9 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import MessageThread from '../../templates/MessageThread';
 
 function Conversation() {
+  const messages = useSelector(state => state.messages)
+
   return (
-    <MessageThread />
+    <MessageThread messages={messages} />
   )
 }
 
