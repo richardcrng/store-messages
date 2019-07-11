@@ -11,8 +11,9 @@ function Conversation() {
     console.log('characterIndex', characterIndex)
   }
 
-  const onSelect = (messageId, characterIndex) => {
-    console.log('highlighting messageId and characterIdx')
+  const onSelect = ({ container, messageId, range }) => {
+    console.log(container, messageId)
+    console.log(range.cloneContents().children)
   }
 
   return (

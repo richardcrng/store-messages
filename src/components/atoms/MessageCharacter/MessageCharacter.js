@@ -1,8 +1,13 @@
 import React from 'react';
+import { useMessageId } from '../../organisms/Message';
 
-function MessageCharacter({ character, highlighted = false }) {
+function MessageCharacter({ character, highlighted = false, index }) {
+  const id = useMessageId()
+
   return (
-    <span>{character}</span>
+    <span id={`MessageCharacter-${id}-${index}`}>
+      {character}
+    </span>
   )
 }
 

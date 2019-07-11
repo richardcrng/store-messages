@@ -3,10 +3,12 @@ import classes from './MessageText.module.css';
 import MessageCharacter from '../../atoms/MessageCharacter';
 import useSelectionRange from '../../../hooks/useSelectionRange';
 import { useMessageId } from '../../organisms/Message';
+import { useMessageThreadContext } from '../../templates/MessageThread';
 
 function MessageText({ children = '' }) {
-  const id = useMessageId()
+  const messageId = useMessageId()
   const ref = React.useRef()
+  const { onSelect } = useMessageThreadContext()
 
   const range = useSelectionRange()
 
@@ -14,7 +16,7 @@ function MessageText({ children = '' }) {
     if (range) {
       const { commonAncestorContainer: container } = range;
       if (container === ref.current) {
-        console.log(`found selection in message id ${id}`)
+        onSelect({ container, messageId, range })
       }
     }
   })
