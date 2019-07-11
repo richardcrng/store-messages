@@ -1,3 +1,3 @@
-import MessageCharacter from "./MessageCharater";
+import MessageCharacter from "./MessageCharacter";
 
 export default MessageCharacter
