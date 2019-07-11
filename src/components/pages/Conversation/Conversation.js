@@ -12,8 +12,13 @@ function Conversation() {
   }
 
   const onSelect = ({ container, messageId, range }) => {
-    console.log(container, messageId)
-    console.log(range.cloneContents().children)
+    const timeoutHandle = setTimeout(() => {
+      const containedSpans = range.cloneContents().children
+      const firstAndLast = [containedSpans[0], containedSpans[containedSpans.length - 1]]
+        .map(span => span.id.split('-').slice(1))
+      console.log(firstAndLast)
+    }, 250);
+    return timeoutHandle
   }
 
   return (

@@ -16,7 +16,10 @@ function MessageText({ children = '' }) {
     if (range) {
       const { commonAncestorContainer: container } = range;
       if (container === ref.current) {
-        onSelect({ container, messageId, range })
+        const timeoutHandler = onSelect({ container, messageId, range })
+        return function cleanup() {
+          clearTimeout(timeoutHandler)
+        }
       }
     }
   })
