@@ -1,5 +1,6 @@
 import React from 'react';
 import { F7Messages, F7Message, F7Page, F7MessagesTitle } from 'framework7-react';
+import MessageText from '../../atoms/MessageText';
 
 function MessageThread({ messages = {} }) {
   return (
@@ -12,7 +13,7 @@ function MessageThread({ messages = {} }) {
               tail
               type={sender === 'user' ? 'sent' : 'received'}
             >
-              <span>{text}</span>
+              <MessageText>{text}</MessageText>
             </F7Message>
           </React.Fragment>
         ))}
