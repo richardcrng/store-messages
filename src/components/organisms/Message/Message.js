@@ -1,15 +1,16 @@
+import * as R from 'ramda'
 import React from 'react';
 import { F7Message } from 'framework7-react';
-import MessageText from '../../atoms/MessageText';
+import MessageText from '../../molecules/MessageText';
 
-function Message({ children, sender }) {
+function Message({ children, sender, text }) {
   return (
     <F7Message
       color='teal'   // so that highlighting is visible
       tail
       type={sender === 'user' ? 'sent' : 'received'}
     >
-      <MessageText>{children}</MessageText>
+      <MessageText>{R.defaultTo(text, children)}</MessageText>
     </F7Message>
   )
 }
