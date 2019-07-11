@@ -29,7 +29,7 @@ function Conversation() {
   }
 
   return (
-    <MessageThread {...{ messages, onSelect }} />
+    <MessageThread {...{ highlightedCharacters, messages, onSelect }} />
   )
 }
 
