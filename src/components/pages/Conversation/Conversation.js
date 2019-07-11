@@ -24,7 +24,7 @@ function Conversation() {
           end: endIdx
         }
       }))
-    }, 250);
+    }, 100);
     return timeoutHandle
   }
 
