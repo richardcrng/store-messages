@@ -8,7 +8,7 @@ function useSelection() {
   // Used to force refresh components hooked in
   //  when selectionchange event fires
   //  (since the Selection object itself does not update)
-  const [num, setNum] = React.useState(0)
+  const [num, setNum] = React.useState(0) // eslint-disable-line
 
   const updateSelection = React.useCallback(() => {
     const newSelection = document.getSelection()

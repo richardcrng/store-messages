@@ -28,7 +28,7 @@ function MessageText({ children = '' }) {
         }
       }
     }
-  }, [range, ref, onSelect])
+  }, [onSelect, range, ref ])
 
   return (
     <span className={classes.MessageText} ref={ref}>
