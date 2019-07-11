@@ -27,7 +27,7 @@ const highlightRange = (range, selection) => {
 }
 
 const highlightElement = target => {
-  target.style.backgroundColor = "#f4eb42"
+  target.style.backgroundColor = "#5ac8fa"
 }
 
 const highlightSelectedElements = (arrOfElements, selection, override = false) => {
