@@ -9,13 +9,6 @@ function Conversation() {
   const dispatch = useDispatch()
   const messages = useSelector(selectors.getMessages)
   const highlightedCharacters = useSelector(selectors.getSnippetsHighlightedCharacters)
-  console.log(highlightedCharacters)
-
-  const makeOnSelect = (messageId, characterIndex) => (selection) => {
-    console.log('selection', selection)
-    console.log('messageId', messageId)
-    console.log('characterIndex', characterIndex)
-  }
 
   const onSelect = ({ container, messageId, range }) => {
     const timeoutHandle = setTimeout(() => {
@@ -36,7 +29,7 @@ function Conversation() {
   }
 
   return (
-    <MessageThread {...{ makeOnSelect, messages, onSelect }} />
+    <MessageThread {...{ messages, onSelect }} />
   )
 }
 
