@@ -10,12 +10,13 @@ function Conversation() {
   const messages = useSelector(selectors.getMessages)
   const highlightedCharacters = useSelector(selectors.getSnippetsHighlightedCharacters)
 
-  const onSelect = ({ container, messageId, range }) => {
+  const onSelect = ({ callback, container, messageId, range, selection }) => {
     const timeoutHandle = setTimeout(() => {
       const containedSpans = range.cloneContents().children
       const [startIdx, endIdx] = [containedSpans[0], containedSpans[containedSpans.length - 1]]
         .map(span => parseInt(span.id.split('-')[2]))
       const snippetId = generatePushID()
+      selection.empty()
       dispatch(actions.snippets.create.set(snippetId, {
         id: snippetId,
         message: messageId,
@@ -24,8 +25,9 @@ function Conversation() {
           end: endIdx + 1   // for some reason selection range seems to cut off the last character
         }
       }))
+      typeof callback === 'function' && callback()
       window.alert('snippet saved!')
-    }, 300);
+    }, 100);
     return timeoutHandle
   }
 
