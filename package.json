@@ -12,7 +12,8 @@
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
     "redux-leaves": "^0.3.5",
-    "redux-starter-kit": "^0.5.1"
+    "redux-starter-kit": "^0.5.1",
+    "reselect": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
