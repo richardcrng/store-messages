@@ -6,9 +6,9 @@ import Message from '../../organisms/Message/Message';
 const MessageThreadContext = React.createContext()
 export const useMessageThreadContext = () => React.useContext(MessageThreadContext)
 
-function MessageThread({ makeOnSelect, messages = {}, onSelect }) {
+function MessageThread({ highlightedCharacters, messages = {}, onSelect }) {
   return (
-    <MessageThreadContext.Provider value={{ makeOnSelect, onSelect }}>
+    <MessageThreadContext.Provider value={{ highlightedCharacters, onSelect }}>
       <F7Page>
         <F7Messages>
           {Object.entries(messages).map(([key, { id, text, sender, createdAt }]) => (

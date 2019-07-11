@@ -3,16 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import MessageThread from '../../templates/MessageThread';
 import actions from '../../../redux';
 import generatePushID from '../../../utils/generatePushID';
+import selectors from '../../../redux/selectors';
 
 function Conversation() {
   const dispatch = useDispatch()
-  const messages = useSelector(state => state.messages)
-
-  const makeOnSelect = (messageId, characterIndex) => (selection) => {
-    console.log('selection', selection)
-    console.log('messageId', messageId)
-    console.log('characterIndex', characterIndex)
-  }
+  const messages = useSelector(selectors.getMessages)
+  const highlightedCharacters = useSelector(selectors.getSnippetsHighlightedCharacters)
 
   const onSelect = ({ container, messageId, range }) => {
     const timeoutHandle = setTimeout(() => {
@@ -28,12 +24,12 @@ function Conversation() {
           end: endIdx
         }
       }))
-    }, 250);
+    }, 100);
     return timeoutHandle
   }
 
   return (
-    <MessageThread {...{ makeOnSelect, messages, onSelect }} />
+    <MessageThread {...{ highlightedCharacters, messages, onSelect }} />
   )
 }
 
