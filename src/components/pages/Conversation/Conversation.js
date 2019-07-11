@@ -14,17 +14,18 @@ function Conversation() {
     const timeoutHandle = setTimeout(() => {
       const containedSpans = range.cloneContents().children
       const [startIdx, endIdx] = [containedSpans[0], containedSpans[containedSpans.length - 1]]
-        .map(span => span.id.split('-')[2])
+        .map(span => parseInt(span.id.split('-')[2]))
       const snippetId = generatePushID()
       dispatch(actions.snippets.create.set(snippetId, {
         id: snippetId,
         message: messageId,
         index: {
           start: startIdx,
-          end: endIdx
+          end: endIdx + 1   // for some reason selection range seems to cut off the last character
         }
       }))
-    }, 100);
+      window.alert('snippet saved!')
+    }, 300);
     return timeoutHandle
   }
 
