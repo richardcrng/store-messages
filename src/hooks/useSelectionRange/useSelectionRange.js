@@ -1,5 +1,5 @@
 import * as R from 'ramda'
-import useSelection from "./useSelection";
+import useSelection from '../useSelection/useSelection';
 
 function useSelectionRange({ selectionProvided } = {}) {
   const selectionHook = useSelection()
