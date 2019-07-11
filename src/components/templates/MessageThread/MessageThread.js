@@ -9,6 +9,7 @@ function MessageThread({ messages = {} }) {
           <React.Fragment key={key}>
             <F7MessagesTitle><b>{createdAt}</b></F7MessagesTitle>
             <F7Message
+              tail
               type={sender === 'user' ? 'sent' : 'received'}
             >
               <span>{text}</span>
