@@ -2,13 +2,14 @@ import * as R from 'ramda'
 import React from 'react';
 import SpanifiedMessage from '../SpanifiedMessage';
 import useSelection from '../../../hooks/useSelection';
-import highlight from '../../../utils/highlight';
+import { useMessageThreadContext } from '../../templates/MessageThread/MessageThread';
 
 function HighlightableMessage({ children, sender, text }) {
+  const { onSelect } = useMessageThreadContext()
   const selection = useSelection()
 
   React.useEffect(() => {
-    if (selection) highlight(selection)
+    if (selection && typeof onSelect === 'function') onSelect() 
   })
 
   return (
