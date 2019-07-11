@@ -26,7 +26,7 @@ const recursivelyCreateSpans = (children, path = []) => {
   if (React.isValidElement(children)) {
     const ElementType = children.type
     return (
-      <ElementType id={generateSensibleId(path)} >
+      <ElementType id={generateSensibleId(path)} {...children.props} >
         {recursivelyCreateSpans(children.props.children, [...path])}
       </ElementType>
     )
