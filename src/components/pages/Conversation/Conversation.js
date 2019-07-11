@@ -6,7 +6,10 @@ function Conversation() {
   const messages = useSelector(state => state.messages)
 
   return (
-    <MessageThread messages={messages} />
+    <MessageThread
+      messages={messages}
+      onSelect={() => console.log('running onSelect')}  
+    />
   )
 }
 
