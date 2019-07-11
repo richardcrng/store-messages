@@ -1,16 +1,14 @@
 import React from 'react';
-import { F7Messages, F7Message, F7Page } from 'framework7-react';
+import { F7Messages, F7Page } from 'framework7-react';
+import Message from '../../molecules/Message';
 
-function MessageThread() {
+function MessageThread({ messages = {} }) {
   return (
     <F7Page>
       <F7Messages>
-        <F7Message
-          type='sent'
-          name='Me'
-        >
-          <span>Message!!</span>
-        </F7Message>
+        {Object.entries(messages).map(([key, { text, sender, createdAt }]) => (
+          <Message key={key} {...{ sender, text }} />
+        ))}
       </F7Messages>
     </F7Page>
   )
