@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Root from './Root';
 import * as serviceWorker from './serviceWorker';
 
 // Import Framework7 Core
@@ -16,7 +16,7 @@ import 'framework7/css/framework7.bundle.min.css'
 // Init plugin
 Framework7.use(Framework7React)
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Root />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
