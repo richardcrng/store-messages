@@ -5,7 +5,7 @@ import MessageText from '../../atoms/MessageText';
 function Message({ children, sender }) {
   return (
     <F7Message
-      color='green'   // so that highlighting is visible
+      color='teal'   // so that highlighting is visible
       tail
       type={sender === 'user' ? 'sent' : 'received'}
     >
