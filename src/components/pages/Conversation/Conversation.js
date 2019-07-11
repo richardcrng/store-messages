@@ -24,7 +24,8 @@ function Conversation() {
           end: endIdx + 1   // for some reason selection range seems to cut off the last character
         }
       }))
-    }, 100);
+      window.alert('snippet saved!')
+    }, 300);
     return timeoutHandle
   }
 
