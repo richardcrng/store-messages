@@ -1,6 +1,5 @@
 import React from 'react';
 import { F7Messages, F7Page } from 'framework7-react';
-import HighlightableMessage from '../../organisms/HighlightableMessage';
 import Message from '../../organisms/Message/Message';
 
 const MessageThreadContext = React.createContext()
@@ -10,7 +9,7 @@ function MessageThread({ highlightedCharacters, messages = {}, onSelect }) {
   return (
     <MessageThreadContext.Provider value={{ highlightedCharacters, onSelect }}>
       <F7Page>
-        <F7Messages>
+        <F7Messages scrollMessages={false}>
           {Object.entries(messages).map(([key, { id, text, sender, createdAt }]) => (
             <Message key={key} {...{ id, sender, text }} />
           ))}
