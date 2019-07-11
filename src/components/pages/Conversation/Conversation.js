@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import MessageThread from '../../templates/MessageThread';
 import actions from '../../../redux';
 import generatePushID from '../../../utils/generatePushID';
+import selectors from '../../../redux/selectors';
 
 function Conversation() {
   const dispatch = useDispatch()
-  const messages = useSelector(state => state.messages)
+  const messages = useSelector(selectors.getMessages)
+  const highlightedCharacters = useSelector(selectors.getSnippetsHighlightedCharacters)
+  console.log(highlightedCharacters)
 
   const makeOnSelect = (messageId, characterIndex) => (selection) => {
     console.log('selection', selection)
